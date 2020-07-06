@@ -21,7 +21,4 @@
 - Open menu with [U]
 - Open menu at pd with [G]
 
-
-======================================
-
 - Based on [MrLupo](https://github.com/mrlupo) [ml_policejob](https://github.com/mrlupo/ml_policejob)
