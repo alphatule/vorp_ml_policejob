@@ -127,10 +127,7 @@ Citizen.CreateThread(function()
 				seteazaModel('S_M_M_VALDEPUTY_01')
 				
             elseif WarMenu.Button(_U('poner_skin6')) then
-        -- TriggerServerEvent("redemrp_skin:loadSkin")
-       Citizen.Wait(1000)
-    --    TriggerServerEvent("redemrp_clothing:loadClothes", 1, function(cb)
-                
+                TriggerServerEvent("vorpcharacter:getPlayerSkin")
 				end
 				
             WarMenu.Display()
