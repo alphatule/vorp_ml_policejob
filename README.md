@@ -18,7 +18,7 @@
 - To get support --> [Discord](http://discord.vorpcore.com/)
 
 ## 4. Info
-
+- KLS
 - Open menu with [U]
 - Open menu at pd with [G]
 
