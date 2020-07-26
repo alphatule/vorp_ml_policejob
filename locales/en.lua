@@ -25,8 +25,10 @@ Locales['en'] = {
     ['rifle'] = 'Rifle',
     ['lantern'] = 'Lantern',
     ['knife'] = 'Knife',
-    ['no_autorizado'] = 'You aren\'t a police',ç
+    ['no_autorizado'] = 'You aren\'t a police',
     ['poner_esposas'] = 'Cuff',
     ['quitar_esposas'] = 'Uncuff',
     ['atado'] = 'tied',
+    ['meter'] = 'Put in the car',
+    ['sacar'] = 'Get out of the car',
 }

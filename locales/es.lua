@@ -29,4 +29,6 @@ Locales['es'] = {
     ['poner_esposas'] = 'Esposado',
     ['quitar_esposas'] = 'Desesposado',
     ['atado'] = 'Atado',
+    ['meter'] = 'Meter en el carro',
+    ['sacar'] = 'Sacar del carro',
 }

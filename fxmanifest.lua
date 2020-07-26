@@ -12,7 +12,8 @@ server_scripts {
 client_scripts {
 	'config.lua',
 	'client/main.lua',
-	'client/warmenu.lua'
+	'client/warmenu.lua',
+	'functions.lua'
 }
 
 shared_scripts {

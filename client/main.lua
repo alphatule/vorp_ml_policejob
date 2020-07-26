@@ -31,8 +31,23 @@ Citizen.CreateThread(function()
                 if closestPlayer ~= -1 and closestDistance <= 3.0 then
                 
                     TriggerServerEvent("vorp_ml_policejob:cuffplayer", GetPlayerServerId(closestPlayer))                    
-                    print('cuffacept')
+                    print('Metido correctamente')
                    
+                end
+            elseif WarMenu.Button(_U('meter')) then 
+                local closestPlayer, closestDistance = GetClosestPlayer()
+                    if closestPlayer ~= -1 and closestDistance <= 3.0 then
+                    
+                        TriggerServerEvent("vorp_ml_policejob:metervehiculo", GetPlayerServerId(closestPlayer))                    
+
+                       
+                end
+            elseif WarMenu.Button(_U('sacar')) then 
+                local closestPlayer, closestDistance = GetClosestPlayer()
+                    if closestPlayer ~= -1 and closestDistance <= 3.0 then
+                    
+                        TriggerServerEvent("vorp_ml_policejob:sacarvehiculo", GetPlayerServerId(closestPlayer))                    
+                       
                 end
             elseif WarMenu.Button(_U('desesposar')) then
             local closestPlayer, closestDistance = GetClosestPlayer()
@@ -363,5 +378,35 @@ AddEventHandler('vorp_ml_policejob:hogtie', function()
 	end)
 end)
 
+RegisterNetEvent('vorp_ml_policejob:meter')
+AddEventHandler('vorp_ml_policejob:meter', function()
+    local ped = PlayerPedId()
+    local coords = GetEntityCoords(ped)
+    local vehicle = GetVehicleCoords(coords)
+    print('Coche'..vehicle)
+    print('Coordenadas'..coords)
+    local seats = 1 
+    while seats <= 6 do
+        if Citizen.InvokeNative(0xE052C1B1CAA4ECE4, vehicle, seats) then
+            -- print('Vehiclue seat')
+            Citizen.InvokeNative(0xF75B0D629E1C063D, ped, vehicle, seats)
+            break
+        end
+            if seats == 7 then
+                -- print('ESTO ESTA LLENO MUCHACHO')
+                break
+            end
+        
+        seats = seats + 1
+        print('asientos'..seats)
+    end
+end)
 
-
+RegisterNetEvent('vorp_ml_policejob:sacar')
+AddEventHandler('vorp_ml_policejob:sacar', function()
+    local playerPed = PlayerPedId()
+    local vehicle = GetVehicleCoords(coords)
+    local inVehicle = GetVehiclePedIsIn(playerPed, false)
+    local flag = 16
+    TaskLeaveVehicle(playerPed, vehicle, flag)
+end)
