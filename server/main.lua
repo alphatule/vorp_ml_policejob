@@ -1,29 +1,31 @@
+local VorpCore = {}
+
+TriggerEvent("getCore",function(core)
+    VorpCore = core
+end)
+
 RegisterServerEvent("vorp_ml_policejob:checkjob")
 AddEventHandler("vorp_ml_policejob:checkjob", function()
     local _source = source
-    TriggerEvent("vorp:getCharacter", _source, function(user)
-        -- print(user.job)
-        if user.job == 'police' then
-            TriggerClientEvent('vorp_ml_policejob:open', _source)
-        else
-            -- print('not authorized')
-            TriggerClientEvent("vorp:Tip", _source, _U('no_autorizado'), 4000) -- from server side
-        end
-    end)
+    local Character = VorpCore.getUser(_source).getUsedCharacter
+    local job = Character.job
+    if job == 'police' then
+        TriggerClientEvent('vorp_ml_policejob:open', _source)
+    else
+        TriggerClientEvent("vorp:Tip", _source, _U('no_autorizado'), 4000) -- from server side
+    end
 end)
 
 RegisterServerEvent("vorp_ml_policejob:checkjob2")
 AddEventHandler("vorp_ml_policejob:checkjob2", function()
     local _source = source
-    TriggerEvent("vorp:getCharacter", _source, function(user)
-        -- print(user.job)
-        if user.job == 'police' then
-            TriggerClientEvent('vorp_ml_policejob:open2', _source)
-        else
-            -- print('not authorized')
-            TriggerClientEvent("vorp:Tip", _source, _U('no_autorizado'), 4000) -- from server side
-        end
-    end)
+    local Character = VorpCore.getUser(_source).getUsedCharacter
+    local job = Character.job
+    if job == 'police' then
+        TriggerClientEvent('vorp_ml_policejob:open2', _source)
+    else
+        TriggerClientEvent("vorp:Tip", _source, _U('no_autorizado'), 4000) -- from server side
+    end
 end)
 
 --cuff
